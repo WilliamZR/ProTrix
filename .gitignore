@@ -396,3 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# my own setting
+data/outputs
+checkpoints/
+*.ipynb
