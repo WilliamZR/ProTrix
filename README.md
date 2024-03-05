@@ -1,5 +1,5 @@
 # ProTrix
-Code and data for ProTrix: Building Models for Planning and Reasoning over Tables with Sentence Context
+Code and data for [ProTrix: Building Models for Planning and Reasoning over Tables with Sentence Context](https://arxiv.org/pdf/2403.02177.pdf)
 
 ![Plan-then-Reason](framework.png)
 
@@ -75,7 +75,14 @@ python compute_score.py --benchmark {benchmark} --model_path {model_path} --eval
 ```
 ## Citation 
 ```
-To be updated
+@misc{wu2024protrix,
+      title={ProTrix: Building Models for Planning and Reasoning over Tables with Sentence Context}, 
+      author={Zirui Wu and Yansong Feng},
+      year={2024},
+      eprint={2403.02177},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 ```
 
 ## License
