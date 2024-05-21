@@ -36,6 +36,7 @@ conda activate protrix
 ```
 
 ## Data Format of TrixInstruct
+You can also download our [dataset](https://huggingface.co/datasets/pkupie/TrixInstruct) through Huggingface
 ```
 {
     'id': instance id from the original dataset,
