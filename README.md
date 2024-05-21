@@ -10,7 +10,7 @@ We propose a *Plan-then-Reason* framework to answer user queries on tabular task
 [2024/05/21] We release our finetuned models on huggingface. We also introduce a new model Llama-3-ProTrix based on Llama-3-8B!
 
 ## Models
-You can download our models [ProTrix](https://huggingface.co/pkupie/ProTrix), [ProTrix-Coder](https://huggingface.co/pkupie/ProTrix-Coder) and [Llama-3-ProTrix](https://huggingface.co/pkupie/Llama-3-ProTrix) on huggingface. The latest Llama-3-ProTrix is finetune using [Xtuner](https://github.com/InternLM/xtuner).
+You can download our models [ProTrix](https://huggingface.co/pkupie/ProTrix), [ProTrix-Coder](https://huggingface.co/pkupie/ProTrix-Coder) and [Llama-3-ProTrix](https://huggingface.co/pkupie/Llama-3-ProTrix) on huggingface. The latest Llama-3-ProTrix is finetuned using [Xtuner](https://github.com/InternLM/xtuner).
 
 ## Environments
 ```
