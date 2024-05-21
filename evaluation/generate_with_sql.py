@@ -11,9 +11,38 @@ from sql_tool import generate_sql_prompt, process_table_datatype, process_table_
 import warnings
 warnings.filterwarnings("ignore")
 
+def modify_input(input, type):
+    if type == 'empty':
+        return input
+    elif type == 'llama3':
+        output = '''<|start_header_id|>system<|end_header_id|>
+
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+{input}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+'''
+        return output.format(input=input)
+    elif type == 'llama2':
+        output ='''[INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+<</SYS>>
+
+[/INST] [INST] {input} [/INST]'''
+        return output.format(input=input)
+    else:
+        raise ValueError(f'Invalid template type: {type}')
+
 def run_inference_one_gpu(gpu_id, data, model_name, sampling_params):
     os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
     llm = LLM(model_name)
+
+    ## use this to end generating when llama3 outputs <|eot_id|> to speed up generation
+    if 'llama3' in model_name:
+        tokenizer = llm.get_tokenizer()
+        sampling_params = SamplingParams(temperature=0, max_tokens=1024, stop_token_ids=[tokenizer.convert_tokens_to_ids("<|eot_id|>")])
     
     if 'input' in data[0]:
         input_prompts = [d['input'] for d in data]
@@ -59,6 +88,7 @@ if __name__ == '__main__':
     parser.add_argument('--benchmark', type=str, required=True)
     parser.add_argument('--model_path', type=str)
     parser.add_argument('--force_generate', action = 'store_true')
+    parser.add_argument('--template', type=str, default='empty')
     args = parser.parse_args()
 
     if args.model_path.endswith('/'):
@@ -84,7 +114,11 @@ if __name__ == '__main__':
             data = json.load(f)
             print(f'Loading data from data/evaluation_data/{args.benchmark}_dev.json')
 
-
+    for entry in data:
+        try:
+            entry['input'] = modify_input(entry['input'], args.template)
+        except:
+            entry['prompt'] = modify_input(entry['prompt'], args.template)
     if os.path.exists(output_file) and not args.force_generate:
         print(f'Output file {output_file} exists\n Skip Generating...')
         with open(output_file, 'r') as f:
