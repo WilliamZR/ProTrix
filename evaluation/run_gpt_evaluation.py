@@ -92,10 +92,12 @@ if __name__ == '__main__':
         pool.close()
         pool.join()
 
-        files = [f'{output_folder}/response_{i}.json' for i in range(len(data)//itv)]
+        files = os.listdir(output_folder)
+        files = [os.path.join(output_folder, file) for file in files if file.endswith('.json')]
         ## combine all the files into one json
         output_data = []
         for file in files:
             output_data += json.load(open(file))
+        assert len(output_data) == len(data)
         with open(output_file, 'w') as f:
             json.dump(output_data, f, indent=4)
