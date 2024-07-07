@@ -7,6 +7,8 @@ Code and data for [ProTrix: Building Models for Planning and Reasoning over Tabl
 We propose a *Plan-then-Reason* framework to answer user queries on tabular tasks with sentence context. The framework first plans the reasoning pathways by ingesting the query and the context, and assigns each step to textual and program-based reasoning to arrive at the final answer. We construct TrixInstruct, an instruction-tuning set to build models with generalizability and interpretability over tables with sentence context. We develop ProTrix, capable of planning and reasoning on tabular tasks with sentence context. ProTrix can generalize to unseen tasks generate accurate and faithful explanations.
 
 ## Updates
+[2024/07/07] We update the [prediction results](https://github.com/WilliamZR/ProTrix/tree/main/data/protrix_output) for ProTrix family. You can use them to reproduce our results or run your own evaluation.
+
 [2024/07/02] We add code for in-context learning experiments with our framework. Check the details in our [paper]((https://arxiv.org/pdf/2403.02177.pdf))!
 
 [2024/05/21] We release our finetuned models on huggingface. We also introduce a new model Llama-3-ProTrix based on Llama-3-8B!
