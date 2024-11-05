@@ -85,18 +85,10 @@ if __name__ == '__main__':
     parser.add_argument('--run', action='store_true', help = 'This helps you to prevent accidentally run all the data before you are ready')
     args = parser.parse_args()
 
-    assert args.step in ['plan', 'reason', 'one_step', 'one_step_result']
+    assert args.step in ['one_step', 'one_step_result']
 
-    if args.step == 'plan':
-        #data = json.load(open(f'data/eval_data_dict/{args.benchmark}.json'))
-        ## use jsonlines to load 
-        data = []
-        with jsonlines.open(f'data/eval_data_dict/{args.benchmark}.jsonl') as f:
-            for line in f:
-                data.append(line)
-    elif args.step == 'reason':
-        data = json.load(open(f'data/gpt_output/{args.model_name}/{args.benchmark}_plan_parsed.json'))
-    elif args.step == 'one_step':
+
+    if args.step == 'one_step':
         data = []
         with jsonlines.open(f'data/eval_data_dict/{args.benchmark}.jsonl') as f:
             for line in f:
