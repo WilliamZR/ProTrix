@@ -36,7 +36,7 @@ conda activate protrix
 │   ├── evaluate_with_llm.py
 │   ├── generate_all_responses.sh
 │   ├── sql_tool.py
-│   └── evaluate_with_sql.py
+│   └── generate_with_sql.py
 ├── prompt
 │   ├── one_step.py
 │   ├── prompt.py
@@ -64,7 +64,7 @@ You can also download our [dataset](https://huggingface.co/datasets/pkupie/TrixI
 ### Inference
 You can run the following command to generate result for a specific benchmark. We splits data on different GPUs to speed up the process with multiprocessing. The result will be saved at data/outputs/{model_name}. Use empty template for ProTrix and ProTrix-Coder, and llama3 template for Llama-3-ProTrix.
 ```
-CUDA_VISIBLE_DEVICE={} python evaluation/evaluate_with_sql.py --model_path {your_path_to_protrix} --benchmark {benchmark} --template {template}
+CUDA_VISIBLE_DEVICE={} python evaluation/generate_with_sql.py --model_path {your_path_to_protrix} --benchmark {benchmark} --template {template}
 ```
 Or you can run the following command to generate for all the benchmarks in data/evaluation_data
 ```
