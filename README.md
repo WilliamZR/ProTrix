@@ -125,7 +125,8 @@ python src/eval_icl.py --model_name {model_name} --benchmark {benchmark} --one_s
     address = "Miami, Florida, USA",
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2024.findings-emnlp.253",
-    pages = "4378--4406",
+    pages = "4378--4406"
+}
 ```
 
 ## License
