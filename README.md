@@ -1,5 +1,5 @@
 # ProTrix
-Code and data for [ProTrix: Building Models for Planning and Reasoning over Tables with Sentence Context](https://arxiv.org/pdf/2403.02177.pdf)
+Code and data for [ProTrix: Building Models for Planning and Reasoning over Tables with Sentence Context](https://aclanthology.org/2024.findings-emnlp.253/)
 
 ![Plan-then-Reason](framework.png)
 
@@ -112,14 +112,20 @@ python src/eval_icl.py --model_name {model_name} --benchmark {benchmark} --one_s
 ```
 ## Citation 
 ```
-@misc{wu2024protrix,
-      title={ProTrix: Building Models for Planning and Reasoning over Tables with Sentence Context}, 
-      author={Zirui Wu and Yansong Feng},
-      year={2024},
-      eprint={2403.02177},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
+@inproceedings{wu-feng-2024-protrix,
+    title = "{P}ro{T}rix: Building Models for Planning and Reasoning over Tables with Sentence Context",
+    author = "Wu, Zirui  and
+      Feng, Yansong",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2024",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-emnlp.253",
+    pages = "4378--4406",
 ```
 
 ## License
